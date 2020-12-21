@@ -11,7 +11,7 @@
 본 절에서는 Windows 사용자를 위해 리눅스 커널을 준비하는 방법에 대해 소개한다. Windows 사용자라면 Windows에서 POSIX기반 소프트웨어를 구동 및 개발할 수 있는 환경을 제공하는 Cygwin을 사용할 수 있지만 우리는 WSL과 Virtual Machine을 사용하는 2가지 방식을 소개한다. 
 
 - [Virtual Machine 을 통해 리눅스 커널 준비하기](./vm/README.md)
-  - `.ova` 파일을 통해 리눅스 커널을 준비한 경우 컴파일러 및 에디터를 사전에 준비해놓은 상태이니 아래의 절차를 생략하고 바로 코딩을 하실 수 있습니다.
+  - `.ova` 파일을 통해 리눅스 커널을 준비한 경우 **<u>컴파일러 및 에디터를 사전에 준비해놓은 상태이니 아래의 절차를 생략하고 바로 코딩을 하실 수 있습니다.</u>**
   - [ova 파일 다운로드](https://drive.google.com/file/d/136On8uGjdzVvn94-zPnoxAqfUx_l-31F/view)
 - [WSL을 통해 리눅스 커널 준비하기](./wsl/README.md)
 
