@@ -12,13 +12,14 @@
 
 - [Virtual Machine 을 통해 리눅스 커널 준비하기](./vm/README.md)
   - `.ova` 파일을 통해 리눅스 커널을 준비한 경우 컴파일러 및 에디터를 사전에 준비해놓은 상태이니 아래의 절차를 생략하고 바로 코딩을 하실 수 있습니다.
+  - [ova 파일 다운로드](https://drive.google.com/file/d/136On8uGjdzVvn94-zPnoxAqfUx_l-31F/view)
 - [WSL을 통해 리눅스 커널 준비하기](./wsl/README.md)
 
 
 
 # 컴파일러 준비
 
-C언어는 대표적인 컴파일 언어이며, gcc, clang과 같은 컴파일러를 준비하여야 한다. 아래의 명령어는 clang 컴파일러를 설치하는 명령어이며, gcc 사용을 원하는 사용자는 아래 명령어에서 clang을 gcc로 대체하여 설치할 수 있다. 일부 운영체제 (우분투 포함) 는 이미 gcc 가 설치되어 있을 수 있다. 
+C언어는 대표적인 컴파일 언어이며, gcc, clang과 같은 컴파일러를 준비하여야 한다. 아래의 명령어는 clang 컴파일러를 설치하는 명령어이며, gcc 사용을 원하는 사용자는 아래 명령어에서 clang을 gcc로 대체하여 설치할 수 있다. 
 
 ```zsh
 sudo apt install clang llvm
@@ -36,7 +37,7 @@ sudo apt install clang llvm
 
 vim은 매우 오랜 역사를 가진 에디터로, CLI에서 바로 사용할 수 있기 때문에 SSH를 통해 원격으로 접속하여 코딩을 하고자 하는 사용자에게 매우 적합한 에디터이다. 하지만 GUI 환경에 익숙한 사용자에게는 추천하지 않는다. 
 
-vim 설치는 아래 명령어를 통해 바로 설치할 수 있다. 
+Windows 환경에서 WSL을 통해 프로그래밍을 하려는 사용자는 vscode를 사용하는 것을 추천하며, vm환경에서 vim을 사용하고 싶은 사용자는 아래 명령어를 통해 바로 설치할 수 있다. 
 
 ```zsh
 sudo apt install vim
@@ -46,16 +47,15 @@ sudo apt install vim
 
 ## vscode 설치 및 설정
 
-* vscode는 마이크로소프트에서 제작한 code editor이자 개발도구로 아래의 사이트에서 자세한 사항을 확인할 수 있으며, 다운로드 받을 수도 있다.
+vscode는 마이크로소프트에서 제작한 code editor이자 개발도구로 아래의 사이트에서 자세한 사항을 확인할 수 있으며, 다운로드 받을 수도 있다. vm 사용자는 virtual machine에 설치되어 있는 운영체제에서 vscode를 설치하면 되고, wsl 사용자는 windows 환경에서 vscode를 설치하면 된다.
 
-  * https://code.visualstudio.com/
+* https://code.visualstudio.com/
 
 * vscode 설치가 완료되면 c/c++ 개발을 위한 설정을 수행한다.
 
   * plugin 설치 - 다음 2개의 plugin을 설치한다.
 
-    * Remote-WSL
-
+    * Remote-WSL (WSL 사용자의 경우에만 설치)	
     * c/c++
 
     ![1566889467495](.README.assets/1566889467495.png)
@@ -64,94 +64,51 @@ sudo apt install vim
 
 
 
-## 프로젝트 생성
+### 프로젝트 생성
 
-* project를 생성할 폴더를 생성해준다.
+* project를 수행할 폴더를 생성한다.
 
-  * ubuntu app을 실행한 후 `mkdir cpp-test` 명령어를 통해 cpp-test 디렉터리를 생성한다.
+* vscode를 수행한 후 해당 폴더를 연다. 
 
-    <img src=".README.assets/1566889810868.png" width=500px/>
+  ![image-20201221104226685](.README.assets/image-20201221104226685.png)
 
-* remote-wsl 플러그인을 사용하여 ubuntu 환경에서 project를 생성해준다.
+* WSL 사용자의 경우 `해당 폴더를 wsl로 열기` 를 수행한다.
 
-  ![1566977154697](.README.assets/1566977154697.png)
+  ![image-20201221110721733](.README.assets/image-20201221110721733.png)
 
-* .gitignore 파일을 생성한 후 .vscode 폴더를 추가한다. (git을 사용하지 않을 사람은 하지 않아도 됨)
+* main.c 소스코드를 생성한 후 아래의 소스코드를 입력한다.
 
-  ![1566977229923](.README.assets/1566977229923.png)
+  ```c++
+  #include <stdio.h>
+  
+  int main(){
+      printf("Hello world\n");
+      
+      return 0;
+  }
+  ```
 
-* C++ 작업환경을 구성한다.
+  ![image-20201221105217447](.README.assets/image-20201221105217447.png)
 
-  * `Ctrl + Shift + P`를 누른 후 `C/C++: Edit` 을 입력한 후 `C/C++: Edit Configurations` 항목을 선택
+* 해당 폴더에서 터미널을 실행한다.
 
-    ![1566977357124](.README.assets/1566977357124.png)
+  ![image-20201221110742393](.README.assets/image-20201221110742393.png)
 
-  * .vscode 디렉터리 내에 c_cpp_properties.json 파일이 생성되는 것을 확인한 후 자신이 원하는 환경으로 설정한다.
+* 아래의 명령으로 컴파일을 실행한 후 실행파일이 생성되는 것을 확인한다.
 
-    ![1566977432155](.README.assets/1566977432155.png)
+  * clang 대신에 gcc를 사용할 수 있다.
 
-* 소스코드를 작성한다.
+  ```zsh
+  clang main.c -o main
+  ```
 
-  * src 폴더를 생성하고 그 안에 main.cpp 파일을 생성하여 다음 코드를 작성한다.
+* 생성한 파일을 실행한다.
 
-    ```c++
-    #include <iostream>
-    
-    using namespace std;
-    
-    int main(void)
-    {
-        cout << "Hello world!!" << endl;
-        return 0;
-    }
-    
-    ```
+  ```zsh
+  ./main
+  ```
 
-    ![1566977591980](.README.assets/1566977591980.png)
-
-* 빌드
-
-  * 빌드를 위해 Tasks.json파일을 생성한다.
-
-    * 반드시 .cpp 파일을 선택한 후 아래의 절차를 실행할 것!!
-
-    ![1566977702611](.README.assets/1566977702611.png)****
-
-    ![1566977722490](.README.assets/1566977722490.png)
-
-    ![1566977747347](.README.assets/1566977747347.png)
-
-  * 빌드를 수행한다.(<u>Ctrl + Shift + B</u>)
-
-    * Tasks.json 파일은 빌드 방식을 포함하고 있는 파일로 Tasks.json 파일에 여러가지 빌드 방식을 추가할 수 있으며, 다음의 절차로 추가한 빌드 방식 중 1가지를 사용해 빌드를 수행할 수 있다. <u>(Run Build task 하는게 없음)</u>
-
-      ![1566978083709](.README.assets/1566978083709.png)
-
-    * main 파일이 생성된 것을 확인한다.
-
-      ![1566978127094](.README.assets/1566978127094.png)
-
-* 디버그
-
-  * 빌드의 방식이 tasks.json 파일에 저장되듯이 디버깅 방식은 launch.json 파일에 저장된다. 다음 절차를 따라하여 launch.json파일을 생성한다.
-
-    ![1566981683858](.README.assets/1566981683858.png)
-
-    * Program 속성을 다음과 같이 수정한다.
-
-      `"program" : "${fileDirname}/${fileBasenameNoExtension}"`
-
-    ![1566981840090](.README.assets/1566981840090.png)
-
-  * F5를 누르면 디버깅이 수행된다.
-
-    * BreakPoint를 찍어 제대로 작동하는지 확인한다.
-
-      <img src=".README.assets/1566981984293.png" alt="1566981984293" style="zoom:50%;" />
-
-
-
-# 실습
+  ![image-20201221110755602](.README.assets/image-20201221110755602.png)
 
 
 
