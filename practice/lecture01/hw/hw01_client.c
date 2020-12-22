@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == -1)
         error_handling("connect() error!");
 
-    fd = open(argv[1], ________________); //옵션을 채워보세요
+    fd = open(argv[1], ________________); //옵션을 채워보세요.
     if (fd == -1)
         error_handling("open() error!");
 
