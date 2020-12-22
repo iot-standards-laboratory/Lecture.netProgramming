@@ -58,12 +58,3 @@ void error_handling(char *message)
     fputc('\n', stderr);
     exit(1);
 }
-
-/*
-root@com:/home/swyoon/tcpip# gcc low_open.c -o lopen
-root@com:/home/swyoon/tcpip# ./lopen
-file descriptor: 3 
-root@com:/home/swyoon/tcpip# cat data.txt
-Let's go!
-root@com:/home/swyoon/tcpip# 
-*/
