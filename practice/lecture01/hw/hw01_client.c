@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     }
 
     sock = socket(________, ________, ________);    // 완성해보세요
-    ; //완성해보세요
+    
     if (sock == -1)
         error_handling("socket() error");
 
