@@ -1,4 +1,15 @@
 # WSL (Windows Sub System for Linux) 설치
+
+## 참고영상
+
+
+<iframe width="560" height="315"
+src="https://youtu.be/vtSzxkDM7rw" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+
+
 ## windows store에서 ubuntu 설치
 
 * windows 키를 누른 후 store 검색
