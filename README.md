@@ -2,8 +2,7 @@
 
 ## 참고영상
 
-
-https://www.youtube.com/embed/vtSzxkDM7rw
+* https://youtu.be/vtSzxkDM7rw
 
 
 ## windows store에서 ubuntu 설치
